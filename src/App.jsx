@@ -273,7 +273,7 @@ function App() {
         </div>
         
         <footer className="mt-8 sm:mt-16 text-center text-gray-500 text-xs sm:text-sm">
-          <p>Created by Muhammad Ali Imran, and vibes with ❤️ using React and Tailwind CSS</p>
+          <p>Created by Muhammad Ali Imran, and vibes ✨ with ❤️ using React and Tailwind CSS</p>
         </footer>
       </div>
       
