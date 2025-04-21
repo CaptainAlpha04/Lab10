@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Custom responsive utilities */
+@layer utilities {
+  /* Extra small screens */
+  @media (min-width: 475px) {
+    .xs\:flex-row {
+      flex-direction: row;
+    }
+    .xs\:inline {
+      display: inline;
+    }
+    .xs\:items-center {
+      align-items: center;
+    }
+    .xs\:justify-between {
+      justify-content: space-between;
+    }
+  }
+}
+
+/* Prevent content from overflowing on small screens */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
