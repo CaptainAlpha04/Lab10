@@ -1,4 +1,4 @@
-const GuestSummary = ({ guests }) => {
+const GuestSummary = ({ guests, onTotalClick, onConfirmedClick, onPendingClick }) => {
   const totalGuests = guests.length;
   const confirmedGuests = guests.filter(guest => guest.rsvp).length;
   const unconfirmedGuests = totalGuests - confirmedGuests;
@@ -17,34 +17,64 @@ const GuestSummary = ({ guests }) => {
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-          <div className="p-3 sm:p-4 bg-white rounded-xl shadow-md border-l-4 border-indigo-500 transform transition-transform hover:scale-105">
+          <div 
+            className="p-3 sm:p-4 bg-white rounded-xl shadow-md border-l-4 border-indigo-500 transform transition-transform hover:scale-105 cursor-pointer hover:ring-2 hover:ring-indigo-200"
+            onClick={onTotalClick}
+            role="button"
+            aria-label="View all guests"
+          >
             <div className="flex justify-between items-center">
               <p className="text-3xl sm:text-4xl font-bold text-indigo-600">{totalGuests}</p>
               <svg className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
               </svg>
             </div>
-            <p className="text-xs sm:text-sm font-medium text-gray-500">Total Guests</p>
+            <div className="flex items-center justify-between mt-1">
+              <p className="text-xs sm:text-sm font-medium text-gray-500">Total Guests</p>
+              <svg className="h-4 w-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
           </div>
           
-          <div className="p-3 sm:p-4 bg-white rounded-xl shadow-md border-l-4 border-green-500 transform transition-transform hover:scale-105">
+          <div 
+            className="p-3 sm:p-4 bg-white rounded-xl shadow-md border-l-4 border-green-500 transform transition-transform hover:scale-105 cursor-pointer hover:ring-2 hover:ring-green-200"
+            onClick={onConfirmedClick}
+            role="button"
+            aria-label="View confirmed guests"
+          >
             <div className="flex justify-between items-center">
               <p className="text-3xl sm:text-4xl font-bold text-green-600">{confirmedGuests}</p>
               <svg className="w-6 h-6 sm:w-8 sm:h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <p className="text-xs sm:text-sm font-medium text-gray-500">Confirmed</p>
+            <div className="flex items-center justify-between mt-1">
+              <p className="text-xs sm:text-sm font-medium text-gray-500">Confirmed</p>
+              <svg className="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
           </div>
           
-          <div className="p-3 sm:p-4 bg-white rounded-xl shadow-md border-l-4 border-yellow-500 transform transition-transform hover:scale-105">
+          <div 
+            className="p-3 sm:p-4 bg-white rounded-xl shadow-md border-l-4 border-yellow-500 transform transition-transform hover:scale-105 cursor-pointer hover:ring-2 hover:ring-yellow-200"
+            onClick={onPendingClick}
+            role="button"
+            aria-label="View pending guests"
+          >
             <div className="flex justify-between items-center">
               <p className="text-3xl sm:text-4xl font-bold text-yellow-600">{unconfirmedGuests}</p>
               <svg className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <p className="text-xs sm:text-sm font-medium text-gray-500">Pending</p>
+            <div className="flex items-center justify-between mt-1">
+              <p className="text-xs sm:text-sm font-medium text-gray-500">Pending</p>
+              <svg className="h-4 w-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
           </div>
         </div>
         
